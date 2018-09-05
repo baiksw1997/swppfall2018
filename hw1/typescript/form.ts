@@ -151,43 +151,43 @@ but.onclick = function() {
     let alertMessage = '';
     var alert_flag : boolean = false;
     alertMessage += "You must correct:\n\n";
-    if(!form.ok_email) {
+    if(!form.ok_email()) {
         alertMessage += "Email\n";
         alert_flag = true;
     }
-    if(!form.ok_password) {
+    if(!form.ok_password()) {
         alertMessage += "Password\n";
         alert_flag = true;
     }
-    if(!form.ok_password_confirmation) {
+    if(!form.ok_password_confirmation()) {
         alertMessage += "Password Confirmation\n";
         alert_flag = true;
     }
-    if(!form.ok_phone_number) {
+    if(!form.ok_phone_number()) {
         alertMessage += "Phone number\n";
         alert_flag = true;
     }
-    if(!form.ok_fname) {
+    if(!form.ok_fname()) {
         alertMessage += "First name\n";
         alert_flag = true;
     }
-    if(!form.ok_lname) {
+    if(!form.ok_lname()) {
         alertMessage += "Last name\n";
         alert_flag = true;
     }
-    if(!form.ok_age) {
+    if(!form.ok_age()) {
         alertMessage += "Age\n";
         alert_flag = true;
     }
-    if(!form.ok_birth_month) {
+    if(!form.ok_birth_month()) {
         alertMessage += "Birth date (Month)\n";
         alert_flag = true;
     }
-    if(!form.ok_birth_day) {
+    if(!form.ok_birth_day()) {
         alertMessage += "Birth date (Day)\n";
         alert_flag = true;
     }
-    if(!form.ok_birth_year) {
+    if(!form.ok_birth_year()) {
         alertMessage += "Birth date (Year)\n";
         alert_flag = true;
     }
