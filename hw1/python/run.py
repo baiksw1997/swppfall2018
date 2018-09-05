@@ -55,14 +55,14 @@ def main():
     malename_idx = 0
     femalename_idx = 0
     while True:
-        if malename_idx is len(parsed_malenames) or femalename_idx is len(parsed_femalenames):
+        if malename_idx == len(parsed_malenames) or femalename_idx == len(parsed_femalenames):
             break
         if parsed_malenames[malename_idx] > parsed_femalenames[femalename_idx]:
             femalename_idx += 1
         elif parsed_malenames[malename_idx] < parsed_femalenames[femalename_idx]:
             malename_idx += 1
         else:
-            common_names[-1] = parsed_malenames[malename_idx] + ": " + malenames_sorted[malename_idx][0] + ", " + femalenames_sorted[femalename_idx][0]
+            common_names.append(parsed_malenames[malename_idx] + ": " + malenames_sorted[malename_idx][0] + ", " + femalenames_sorted[femalename_idx][0])
             femalename_idx += 1
             malename_idx += 1
             

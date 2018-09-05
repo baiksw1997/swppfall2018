@@ -47,11 +47,11 @@ def check_filename_existence(func):
         BabynameFileNotFoundException: if there is no such file named as the first argument of the function to decorate.
     """
     # TODO: Implement this decorator.
-    def inner(func,filename):
+    def inner(self,filename):
         try:
             if not os.path.isfile(filename):
                 raise BabynameFileNotFoundException()
-            return func(filename)
+            return func(self,filename)
         except BabynameFileNotFoundException:
             print("No such babyname file or directory: "+filename)
             sys.exit(1)
@@ -74,7 +74,7 @@ class BabynameParser:
         text = "File is not read yet"  # TODO: Open and read the given file.
         # Could process the file line-by-line, but regex on the whole text at once is even easier.
         file = open(filename,'r')
-        text = file.readline()
+        text = file.read()
 
         # The year extracting code is provided. Implement the tuple extracting code by using this.
         year_match = re.search(r'Popularity\sin\s(\d{4})', text)
@@ -88,11 +88,12 @@ class BabynameParser:
         # each tuple is: (rank, male-name, female-name)
         self.rank_to_names_tuples = []  # TODO: Extract the list of rank to names tuples.
         entries = re.split("\n+",text)
-        for entry in entries:
-            other_match = re.match(r"<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>",entry)
-            if other_match:
-                self.rank_to_names_tuples[-1] = (other_match.group(1),other_match.group(2),other_match.group(3))
 
+        for entry in entries:
+            other_match = re.search(r"<td>(\d+)</td><td>(\w+)</td><td>(\w+)</td>",entry)
+            if other_match:
+                self.rank_to_names_tuples.append((other_match.group(1),other_match.group(2),other_match.group(3)))
+	
 
     def parse(self, parsing_lambda):
         """
@@ -107,6 +108,6 @@ class BabynameParser:
         # TODO: Implement this method.
         return_list = []
         for entry in self.rank_to_names_tuples:
-            return_list[-1] = parsing_lambda(entry)
+            return_list.append(parsing_lambda(entry))
         return return_list
 
