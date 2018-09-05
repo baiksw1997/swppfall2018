@@ -16,15 +16,15 @@ class Form {
         var domain : number = 0;
         while(true){
             if (iter == this.email.length) return false;
-            if (this.email[iter] == " " || this.email[iter] == ".") return false;
-            if (this.email[iter] == "@") break;
+            if (this.email[iter] == ' ' || this.email[iter] == '.') return false;
+            if (this.email[iter] == '@') break;
             iter += 1;
         }
         iter += 1;
         while(true){
             if (iter == this.email.length) return false;
-            if (this.email[iter] == " " || this.email[iter] == "@") return false;
-            if (this.email[iter] == ".") break;
+            if (this.email[iter] == ' ' || this.email[iter] == '@') return false;
+            if (this.email[iter] == '.') break;
             iter += 1;
         }
         iter += 1;
@@ -128,14 +128,14 @@ but.onclick = function() {
     var email : string = document.forms["form"]["email"].value
     // TODO: Fill in the rest of the function. Use the Form class defined above
     var password : string = document.forms["form"]["password"].value
-    var password_confirmation : string = document.forms["form"]["password_confirmation"].value
-    var phone_number : string = document.forms["form"]["phone_number"].value
+    var password_confirmation : string = document.forms["form"]["password-confirmation"].value
+    var phone_number : string = document.forms["form"]["phone-number"].value
     var fname : string = document.forms["form"]["fname"].value
     var lname : string = document.forms["form"]["lname"].value
     var age : number = document.forms["form"]["age"].value
-    var birth_month : string = document.forms["form"]["birth_month"].value
-    var birth_day : number = document.forms["form"]["birth_day"].value
-    var birth_year : number = document.forms["form"]["birth_year"].value
+    var birth_month : string = document.forms["form"]["birth-month"].value
+    var birth_day : number = document.forms["form"]["birth-day"].value
+    var birth_year : number = document.forms["form"]["birth-year"].value
 
     var form : Form = new Form(email
         ,password
