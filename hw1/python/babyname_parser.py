@@ -51,11 +51,10 @@ def check_filename_existence(func):
     def inner(self,filename):
         try:
             if not os.path.isfile(filename):
-                raise BabynameFileNotFoundException()
+                raise BabynameFileNotFoundException("No such babyname file or directory: {0}".format(filename))
             return func(self,filename)
-        except BabynameFileNotFoundException:
+        except BabynameFileNotFoundException as e:
 	    traceback.print_exc()
-            print("No such babyname file or directory: "+filename)
             sys.exit(1)
 
     return inner
