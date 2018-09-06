@@ -16,7 +16,7 @@ class Form {
         var domain : number = 0;
         while(true){
             if (iter == this.email.length) return false;
-            if (this.email[iter] == ' ' || this.email[iter] == '.') return false;
+            if (this.email[iter] == ' ') return false;
             if (this.email[iter] == '@') break;
             iter += 1;
         }
