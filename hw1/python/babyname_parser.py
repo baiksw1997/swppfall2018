@@ -11,6 +11,7 @@
 
 import sys
 import re
+import os
 
 """Baby Names exercise
 Implement the babyname parser class that parses the popular names and their ranks from an html file.
@@ -46,7 +47,6 @@ def check_filename_existence(func):
         BabynameFileNotFoundException: if there is no such file named as the first argument of the function to decorate.
     """
     # TODO: Implement this decorator.
-    import os.path
     import traceback
     def inner(self,filename):
         try:
